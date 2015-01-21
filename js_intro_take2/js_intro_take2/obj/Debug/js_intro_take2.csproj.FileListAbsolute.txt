@@ -1,0 +1,6 @@
+C:\projects\troop120\js_intro_take2\js_intro_take2\bin\js_intro_take2.dll.config
+C:\projects\troop120\js_intro_take2\js_intro_take2\bin\js_intro_take2.dll
+C:\projects\troop120\js_intro_take2\js_intro_take2\bin\js_intro_take2.pdb
+C:\projects\troop120\js_intro_take2\js_intro_take2\obj\Debug\js_intro_take2.csprojResolveAssemblyReference.cache
+C:\projects\troop120\js_intro_take2\js_intro_take2\obj\Debug\js_intro_take2.dll
+C:\projects\troop120\js_intro_take2\js_intro_take2\obj\Debug\js_intro_take2.pdb

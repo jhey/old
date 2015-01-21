@@ -1,0 +1,6 @@
+C:\projects\troop120\js_intro\js_intro\bin\js_intro.dll.config
+C:\projects\troop120\js_intro\js_intro\bin\js_intro.dll
+C:\projects\troop120\js_intro\js_intro\bin\js_intro.pdb
+C:\projects\troop120\js_intro\js_intro\obj\Debug\js_intro.csprojResolveAssemblyReference.cache
+C:\projects\troop120\js_intro\js_intro\obj\Debug\js_intro.dll
+C:\projects\troop120\js_intro\js_intro\obj\Debug\js_intro.pdb
