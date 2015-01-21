@@ -153,7 +153,7 @@ function randomizer(arr) {
 }
 
 var mixedArray = randomizer(students);
-//console.log(mixedArray);
+console.log(mixedArray);
 
 // Split into 2 large groups
 var studentsGroup1 = mixedArray.slice(0, 6);
@@ -164,15 +164,39 @@ var studentsGroup2 = mixedArray.slice(6, mixedArray.length);
 // make pairs from the 2 large groups
 for (var i = 0; i < studentsGroup1.length; i++) {
     var longStr = "Team #" + i + " " + studentsGroup1[i] + ", " + studentsGroup2[i];
-    console.log(longStr);
+    //console.log(longStr);
 }
 
 // 12
 // 6 w/2 each 
 
-/*
-for (var i = 0; i < mixedArray.length; i++) {
-    var longStr = "Team #" + i + " " + studentsGroup1[i] + ", " + studentsGroup2[i];
+var pairedStudents  = []; // paired list of students
+var tempCounter     = 0;
+var fixedlen = mixedArray.length
+
+for (var i = 0; i < fixedlen; i++) {
+    if (mixedArray.length == 0) {
+        break;
+    }
+    var temp2 = mixedArray.splice(0, 2);
+    //console.log(mixedArray.length, i, temp2);
+    pairedStudents.push(temp2);
+
+    var longStr = "Team #" + i + " " + temp2[0] + ", " + temp2[1];
     console.log(longStr);
+
 }
+//console.log(pairedStudents);
+
+/*
+Final Teams for Wed:
+Team #0 Brittney, Carrington
+Team #1 Chris A, Chase
+Team #2 Dneiqua, Kyle
+Team #3 Eduardo, Mark
+Team #4 David, Chris R
+Team #5 Ryan, Biyanca
 */
+
+
+
