@@ -1,0 +1,6 @@
+C:\projects\troop120\nested_loops\nested_loops\bin\nested_loops.dll.config
+C:\projects\troop120\nested_loops\nested_loops\bin\nested_loops.dll
+C:\projects\troop120\nested_loops\nested_loops\bin\nested_loops.pdb
+C:\projects\troop120\nested_loops\nested_loops\obj\Debug\nested_loops.csprojResolveAssemblyReference.cache
+C:\projects\troop120\nested_loops\nested_loops\obj\Debug\nested_loops.dll
+C:\projects\troop120\nested_loops\nested_loops\obj\Debug\nested_loops.pdb
