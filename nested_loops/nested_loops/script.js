@@ -24,7 +24,7 @@ for (var i = 0; i < len; i++) {
         vCityLong = locs[1];
     }
     vSentence = vCity + " is located at: " + vCityLat + " - " + vCityLong;
-    console.log(vSentence);
+    //console.log(vSentence);
 }
 
 
@@ -34,4 +34,33 @@ vacationCities.sort(function (a, b) {
     if (a > b) return 1;
     return 0;
 });
+
+
+var jedi, place;
+
+jedi = {
+    name: "Yoda"
+};
+
+place = {
+    name: "Austin",
+    visited: true,
+    lat: "30.2500° N",
+    long: "97.7500° W",
+    annouce: function () {
+        var visitedStr;
+        if (this.visited) {
+            visitedStr = "I HAVE visited: "
+        } else {
+            visitedStr = "I HAVE NOT visited: "
+        }
+        var str = visitedStr + this.name;
+        console.log(str);
+    }
+};
+
+
+
+
+
 
