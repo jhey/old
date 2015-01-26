@@ -1,0 +1,6 @@
+C:\projects\troop120\js_jquery\js_jquery\bin\js_jquery.dll.config
+C:\projects\troop120\js_jquery\js_jquery\bin\js_jquery.dll
+C:\projects\troop120\js_jquery\js_jquery\bin\js_jquery.pdb
+C:\projects\troop120\js_jquery\js_jquery\obj\Debug\js_jquery.csprojResolveAssemblyReference.cache
+C:\projects\troop120\js_jquery\js_jquery\obj\Debug\js_jquery.dll
+C:\projects\troop120\js_jquery\js_jquery\obj\Debug\js_jquery.pdb
