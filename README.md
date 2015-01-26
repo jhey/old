@@ -1,2 +1,2 @@
-# troop120
-Code and Samples for CoderCamps Troop 120
+# Code and Samples
+CC #Troop120
