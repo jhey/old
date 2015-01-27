@@ -25,27 +25,32 @@ var currTodoIndex = -1;
 
     // handle form events...
     $("#todoForm").submit(function (event) {
-        event.preventDefault(); //
+        event.preventDefault(); // Prevent defualt browser action
         var todoTask = $("#fTodo").val();
         $("#fTodo").val("");
+        $("#fBtn").attr("value", "Add");
 
-        if (currTodoIndex !== -1) { //perform an UPDATE
+        if (currTodoIndex !== -1) { // perform an UPDATE
             todoHolder[currTodoIndex].task = todoTask;
             currTodoIndex = -1;
             currTodo = null;
         } else { // perform an ADD
-            var tempTodo = new Todo(todoTask, false);
-            todoHolder.push(tempTodo);
+
+            if (todoTask !== "") { // if field is not empty
+                var tempTodo = new Todo(todoTask, false);
+                todoHolder.push(tempTodo);
+            }
+            
         }
         showTodos();
     });
 
-    // show the contents of Array
+    // READ the contents of Array
     function showTodos() {
         $("#myList").empty();
         var len = todoHolder.length;
         var str;       // String for the Delete
-        var idStr;     // String for the ID
+        var idStr;     // String for the IDhbjb
         for (var i = 0; i < len; i++) { 
             idStr = i;
             str = "<a href='#' onclick='deleter("+idStr+")'>X</a>"
@@ -53,32 +58,55 @@ var currTodoIndex = -1;
         }
     }
 
-    // Delete the todo
+    // DELETE Method for the todo
     function deleter(idClicked) {
         todoHolder.splice(idClicked, 1)
         showTodos();
     }
 
-// Edit the todo
+    // UPDATE Method for the todo
     function editTodo(idClicked) {
         currTodoIndex = idClicked;
         var editTodo = todoHolder[currTodoIndex];
         var task = editTodo.task;
         $("#fTodo").val(task);
         $("#fBtn").attr("value", "Update");
-        console.log("clicked edit", task);
+        console.log("clicked edit", task); 
     }
-
-
 
 
     // handle click event on link #fTrigger
     $("#fTrigger").click(function () {
         $("#todoForm").submit(); // submit form
     });
-
     // handle click event for link #hyper
     $("#hyper").click(function () {
         alert("this is hyper!");// alert
         $("#todoForm").submit(); // call the submit on #todoForm
     });
+
+
+    // handle click event for link #ajaxCaller
+    $("#ajaxCaller").click(function () {
+        event.preventDefault(); // Prevent defualt browser action
+        makeCall();
+    });
+
+    // Make AJAX call
+    function makeCall() {
+        //
+        var myrequest = new XMLHttpRequest();
+        myrequest.open("GET", "http://docodo-contactlist.firebaseio.com/.json", true);
+        myrequest.onload = function () {
+            if (this.status >= 200 && this.status < 400) {
+                // success
+                console.log("it was a success");
+                console.log("DATA", this.response);
+
+            } else {
+                // problem
+                console.log("there was a problem");
+            }
+        };
+        myrequest.send();
+    }
