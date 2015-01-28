@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mos Eisley</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <style>
+        .ship-image {
+            height: 200px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Welcome to Mos Eisley</h1>
+        <h2>Enjoy Your Stay</h2>
+        <button class="btn btn-warning" onclick="SpacePort.clearAll()"><i class="fa fa-bomb"></i></button>
+    </div>
+    <div class="well-lg">
+        <input class="input-sm" type="text" id="name" placeholder="Ship Name..." />
+        <input class="input-sm" type="text" id="image" placeholder="URL to ship image" />
+        <select id="affiliation" class="input-sm">
+            <option value="Imperial">Imperial</option>
+            <option value="Rebel">Rebel</option>
+            <option value="Other">Other</option>
+        </select>
+        <div class="btn btn-info" onclick="SpacePort.addShip()">Dock Ship</div>
+    </div>
+    <div id="tableHolder" class="well">
+
+    </div>
+
+    <!--Modal Start-->
+    <div class="modal fade" id="editModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="editTitle"></h4>
+                </div>
+                <div class="modal-body">
+                    <i class="fa fa-rocket fa-2x"></i> <input type="text" id="editName" class="input-sm" /><br />
+                    <i class="fa fa-image fa-2x"></i> <input type="text" id="editImage" class="input-sm" /><br />
+                    <i class="fa fa-users fa-2x" ></i> <select id="editAffiliation" class="input-sm">
+                        <option value="Imperial">Imperial</option>
+                        <option value="Rebel">Rebel</option>
+                        <option value="Other">Other</option>
+                    </select><br />
+                    <i class="fa fa-gavel fa-2x"></i> <select id="editImpound" class="input-sm">
+                        <option value="true">Impounded</option>
+                        <option value="false">Free to Go</option>
+                    </select><br />
+                    <input type="hidden" id="editId" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="saveChangesBtn" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="_script.js"></script>
+</body>
+</html>
