@@ -1,3 +1,4 @@
+// jQuery TODO APP w/Firebase v1.01
 // Make sure DOM & jQuery are loaded...
 $(function () {
 
@@ -89,24 +90,49 @@ var currTodoIndex = -1;
     // handle click event for link #ajaxCaller
     $("#ajaxCaller").click(function () {
         event.preventDefault(); // Prevent defualt browser action
-        makeCall();
+        readCall();
     });
 
-    // Make AJAX call
-    function makeCall() {
-        //
+    // handle click event for Add to firebase
+    $("#ajaxAddCaller").click(function () {
+        event.preventDefault(); // Prevent defualt browser action
+        addCall();
+    });
+
+
+    // Make AJAX call - to READ all data
+    function readCall() {
         var myrequest = new XMLHttpRequest();
-        myrequest.open("GET", "http://docodo-contactlist.firebaseio.com/.json", true);
+        myrequest.open("GET", "https://XYZ.firebaseio.com/.json", true);
         myrequest.onload = function () {
-            if (this.status >= 200 && this.status < 400) {
-                // success
+            if (this.status >= 200 && this.status < 400) { // success
                 console.log("it was a success");
                 console.log("DATA", this.response);
-
-            } else {
-                // problem
+            } else { // problem
                 console.log("there was a problem");
             }
         };
         myrequest.send();
     }
+
+// make AJAX to add data
+
+    function addCall() {
+        var objToAdd = {};
+        objToAdd.task = "become a coder";
+        objToAdd.timeAdded = new Date();
+
+        var myrequest = new XMLHttpRequest();
+        myrequest.open("POST", "https://XYZ.firebaseio.com/.json", true);
+        myrequest.onload = function () {
+            if (this.status >= 200 && this.status < 400) { // success
+                console.log("it was a success");
+                console.log("DATA", this.response);
+            } else { // problem
+                console.log("there was a problem");
+            }
+        };
+        var jsonToSend = JSON.stringify(objToAdd); // covert to string
+        myrequest.send(jsonToSend); // send to firebase
+    }
+
