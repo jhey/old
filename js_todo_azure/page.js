@@ -1,6 +1,6 @@
 $(function() {
     
-    var client = new WindowsAzure.MobileServiceClient('https://todocc.azure-mobile.net/', 'GIojISgypbOigiubTdzEcsqnAJtrmX88'),
+    var client = new WindowsAzure.MobileServiceClient('https://XYZ.azure-mobile.net/', 'key'),
         todoItemTable = client.getTable('todoitem');
 
     // Read current data and rebuild UI.
