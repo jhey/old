@@ -1,0 +1,6 @@
+C:\projects\troop120\CupcakeTracker\CupcakeTracker\bin\CupcakeTracker.dll.config
+C:\projects\troop120\CupcakeTracker\CupcakeTracker\bin\CupcakeTracker.dll
+C:\projects\troop120\CupcakeTracker\CupcakeTracker\bin\CupcakeTracker.pdb
+C:\projects\troop120\CupcakeTracker\CupcakeTracker\obj\Debug\CupcakeTracker.dll
+C:\projects\troop120\CupcakeTracker\CupcakeTracker\obj\Debug\CupcakeTracker.pdb
+C:\projects\troop120\CupcakeTracker\CupcakeTracker\obj\Debug\CupcakeTracker.csprojResolveAssemblyReference.cache
