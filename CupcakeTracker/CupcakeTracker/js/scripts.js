@@ -1,3 +1,4 @@
+// Cupcake Tracker v1.1 - Troop120
 
 
 // Constructor function for Cupcake Deliveries
@@ -17,6 +18,40 @@ function Track(name, address, orderId, cost, status, dateOrdered, agent) {
     this.dateOrdered = dateOrdered;
     this.agent = agent;
 };
+
+// base url of your Firebase App
+var baseUrl = "cccontact";
+
+// URL maker helper function
+var urlMaker = function(base){
+    var url = "https://" + base + ".firebaseio.com/"
+    for (var i = 1; i < arguments.length; i++) {
+        url += arguments[i] + "/"
+    }
+    return url + ".json";
+}
+// Firebase Helper function for XMLHTTPREQUESTS
+var fbXhr = function (verb, url, data, callback, extra) {
+    var request = new XMLHttpRequest(); //Instantiate a new XMLHttp request object
+    request.open(verb, url, true); //Puts Postage and Address on the envelope
+    request.onload = function () { //Defines what happens when the response loads
+        if (this.status >= 200 && this.status < 400) {
+            if (callback && typeof (callback) === "function")
+                callback(JSON.parse(this.response), data, this.status);
+        } else {
+            console.log("Error " + this.status + ":" + this.response);
+        }
+    };
+    request.onerror = function () { //if the request response load never occurs
+        console.log("Communication error");
+    };
+    if (data) { //Send request with Parameteres (CREATE, UPDATE, DELETE)
+        request.send(JSON.stringify(data));
+    } else { // Send request, (READ)
+        request.send();
+    }
+}
+
 
 // Sample order..
 //var order001 = new Track("Joe Smith", "90210 York", 123, 199.99, "pending", "1/3/15", "Mgr Megan");
@@ -64,24 +99,36 @@ function xhrCreate(passedObj) {
 }
 
 // READ - read from firebase
-function xhrRead() {
-    var myrequest = new XMLHttpRequest();
-    myrequest.open("GET", "https://cccontact.firebaseio.com/.json", true);
-    myrequest.onload = function () {
-        if (this.status >= 200 && this.status < 400) { // success
-            var firebaseData = JSON.parse(this.response);
-            console.log("GET was a success", firebaseData);
-            renderContent(firebaseData);
-        } else { // problem
-            console.log("there was a problem");
-        }
-    };
-    myrequest.send(); // send to firebase
+function xhrRead(cbSuccess) {
+    fbXhr("GET", urlMaker(baseUrl), null, cbSuccess)
 }
+// Callback with Parameter/Argument
+function cbAfterRead(fbData) {
+    console.log("MY CALLBACK METHOD", fbData);
+    renderContent(fbData);
+}
+// Call the ajax w/ Anyoumous Function
+xhrRead(function (tempData) {
+    console.log("This is anonoymous");
+    renderContent(tempData);
+});
+
+function fetchAllData() {
+    //
+}
+
+
+function outPutData(param1, param2) {
+    console.log("OUTPUTDATA", param1.agent, param2);
+}
+//masterOrder.forEach(outPutData);
+
+
 // render the data to the screen
 function renderContent(dataToParse) {
     var counter = 0; // 
     $("#myList").empty();
+
     for (var i in dataToParse) { // parse the FBData into an Array
         //console.log(i, dataToParse[i]);
 
@@ -116,7 +163,7 @@ function renderContent(dataToParse) {
 
     }
 }
-xhrRead();
+
 
 
 // EDIT - user clicked edit
@@ -151,8 +198,10 @@ function xhrUpdate() {
 
     var myOrder = new Track(gName, gAddress, gOrderId, gCost, gStatus, gDateOrdered, gAgent);
 
+    // HELPER function not working yet...
+    //fbXhr("PUT", urlMaker(baseUrl, currEditId), myOrder, xhrRead);
+    
     var customUrl = "https://cccontact.firebaseio.com/" + currEditId + ".json"
-
     var myrequest = new XMLHttpRequest();
     myrequest.open("PUT", customUrl, true);
     myrequest.onload = function () {
@@ -165,6 +214,7 @@ function xhrUpdate() {
     };
     var jsonToSend = JSON.stringify(myOrder); // covert to string
     myrequest.send(jsonToSend); // send to firebase
+    
 }
 
 // DELETE - remove item from FireBase
@@ -188,3 +238,42 @@ function deleteTrack(itemIndexClicked) {
     myrequest.send(); // send to firebase
 
 }
+
+
+//Callback & Polling Lesson...
+
+var friends = ["Dexter", "Chris", "Christian", "Jeremy", "Cody", "Justin", "Steven", "Dan"];
+
+friends.forEach(function (eachName, index) {    //forEach executes the provided callback once for each element present in the array in ascending order.
+    //console.log(index + 1 + ". " + eachName);
+});
+
+friends.forEach(traceName);
+function traceName(parm1, parm2) {
+    //console.log(parm1, parm2);
+}
+
+// Polling
+var count = 0;
+var foo = function () {
+    count++;
+    console.log(count, "CALLED setInterval/poll");
+
+
+};
+// Repeat
+var timer = setInterval(foo, 2000);
+// Run once - stop the repeat
+var timeOut = setTimeout(function () { clearInterval(timer); }, 6000);
+// this function will execute every 5 seconds.
+
+// The first example of a closure passes the variable to a named function.
+function startTimer() {
+    var div = document.getElementById('currentTime');
+    setTimeout(doClock(div),200);
+}
+// The second example also uses a closure, by referring to an argument passed to the function.
+function doClock(obj) {
+    setInterval(function(){obj.innerHTML=(new Date()).toLocaleString()},200);
+}
+startTimer();
