@@ -1,0 +1,6 @@
+C:\Users\Coder Camps\Desktop\troop120\Loops\Loops\bin\Debug\Loops.exe.config
+C:\Users\Coder Camps\Desktop\troop120\Loops\Loops\bin\Debug\Loops.exe
+C:\Users\Coder Camps\Desktop\troop120\Loops\Loops\bin\Debug\Loops.pdb
+C:\Users\Coder Camps\Desktop\troop120\Loops\Loops\obj\Debug\Loops.csprojResolveAssemblyReference.cache
+C:\Users\Coder Camps\Desktop\troop120\Loops\Loops\obj\Debug\Loops.exe
+C:\Users\Coder Camps\Desktop\troop120\Loops\Loops\obj\Debug\Loops.pdb
