@@ -1,0 +1,34 @@
+﻿@model todonot.Models.CreateTodoViewModel
+@{
+    //Layout = null;
+}
+
+<p>@ViewBag.Message</p>
+<!-- Html helper form -->
+@using (Html.BeginForm()) {
+    <div>
+        @Html.LabelFor(model => model.Text)
+        @Html.TextBoxFor(model => model.Text)
+    </div>
+    <div>
+        <input type="submit" value="Create" />
+    </div>
+}
+
+<hr />
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>DO NOT</th>
+        <th>Created Date</th>
+        <th>Did I do that?</th>
+    </tr>
+    @foreach (var todo in Model.Todos)
+    {
+        <tr>
+            <td>@todo.Text</td>
+            <td>@todo.dateCompleted</td>
+            <td>@todo.isCompleted</td>
+        </tr>
+    }
+</table>
