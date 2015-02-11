@@ -10,6 +10,8 @@ namespace Linq101.Controllers
     public class HomeController : Controller {
 
         private List<Product> productList;
+        public enum PriorityLevel : int { High = 3, Medium = 2, Low = 1 };
+
         public ActionResult Index() {
             // Demo 1 - get items greater than 5
             int[] numbers = {0,8,7,2,1,1,0,6};
@@ -33,7 +35,10 @@ namespace Linq101.Controllers
             int[] xnumbers = { 5, 2, 7 };
             int oddNumbers = xnumbers.Count(n => n % 2 == 1);
             Debug.WriteLine(oddNumbers);
-           
+           // Demo enum
+         
+
+
 
 
             return View();
@@ -54,8 +59,8 @@ namespace Linq101.Controllers
         // Mockdata
         private void createList() {
             productList = new List<Product> {
-                new Product{ProductId = 0, ProductName="Ring", Category="Jewels", UnitPrice=19.99M,UnitsInStock=5},
-                new Product{ProductId = 1, ProductName="Shoe", Category="Jewels", UnitPrice=19.99M,UnitsInStock=0},
+                new Product{ProductId = 0, ProductName="Ring", Category="Jewels", UnitPrice=19.99M,UnitsInStock=5, Priority = PriorityLevel.High},
+                new Product{ProductId = 1, ProductName="Shoe", Category="Jewels", UnitPrice=19.99M,UnitsInStock=0, Priority = PriorityLevel.Low},
                 new Product{ProductId = 2, ProductName="Dog", Category="Jewels", UnitPrice=19.99M,UnitsInStock=5},
                 new Product{ProductId = 3, ProductName="Earing", Category="Jewels", UnitPrice=19.99M,UnitsInStock=0},
                 new Product{ProductId = 4, ProductName="Cups", Category="car", UnitPrice=19.99M,UnitsInStock=0},
@@ -70,5 +75,7 @@ namespace Linq101.Controllers
         public string Category { get; set; }
         public decimal UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
+
+        public int  Priority { get; set; }
     }
 }
