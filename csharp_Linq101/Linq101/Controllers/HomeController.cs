@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -27,8 +27,14 @@ namespace Linq101.Controllers
                 where prd.Category == "car"
                 select prd;
             foreach (var xitem in soldOutProducts) {
-                Debug.WriteLine(xitem.ProductName);
+                //Debug.WriteLine(xitem.ProductName);
             }
+            // Demo 3 - Lamda
+            int[] xnumbers = { 5, 2, 7 };
+            int oddNumbers = xnumbers.Count(n => n % 2 == 1);
+            Debug.WriteLine(oddNumbers);
+           
+
 
             return View();
         }
