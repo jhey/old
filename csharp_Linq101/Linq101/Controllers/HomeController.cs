@@ -38,15 +38,7 @@ namespace Linq101.Controllers
             Debug.WriteLine(oddNumbers);
            // Demo enum
             // Demo 4 - enum
-            createList();
-            var soldOutProducts =
-                from prd in productList
-                where prd.Category == "car"
-                select prd;
-            foreach (var xitem in soldOutProducts)
-            {
-                //Debug.WriteLine(xitem.ProductName);
-            }
+           
 
 
 
@@ -111,9 +103,9 @@ namespace Linq101.Controllers
     }
     // maps to Priority
     public enum Levels : int { High, Med, Low }
-  // temp...
+    // maps to TempLevels
     public enum PriorityLevel : int { High = 3, Medium = 2, Low = 1 };
-     // maps to TempLevels
+    //
     public enum TempLevels { Extreme, High, Med, Low, AfterNap }
     // maps to Breed
     public enum Breeds {Kalua, Pug, Tequqlia}
