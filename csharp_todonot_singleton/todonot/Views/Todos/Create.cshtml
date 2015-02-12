@@ -1,0 +1,18 @@
+﻿@model todonot.Models.CreateTodoViewModel
+@{
+    //Layout = null;
+}
+
+<div>@Model.Text</div>
+
+<!-- Html helper form -->
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model => model.Text)
+        @Html.TextBoxFor(model => model.Text)
+    </div>
+    <div>
+        <input type="submit" value="Create" />
+    </div>
+}

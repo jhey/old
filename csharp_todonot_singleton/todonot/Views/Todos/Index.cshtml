@@ -1,0 +1,22 @@
+﻿@model todonot.Models.TodoIndexViewModel
+@{
+    //Layout = null;
+}
+
+<div>NOT DO's</div>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>DO NOT</th>
+        <th>Created Date</th>
+        <th>Did I do that?</th>
+    </tr>
+    @foreach (var todo in Model.Todos)
+    {
+        <tr>
+            <td>@todo.Text</td>
+            <td>@todo.DateCompleted</td>
+            <td>@todo.IsCompleted</td>
+        </tr>
+    }
+</table>
