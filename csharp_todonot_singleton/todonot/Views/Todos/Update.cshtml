@@ -1,0 +1,22 @@
+﻿@model todonot.Models.UpdateTodoViewModel
+@{
+    //Layout = null;
+}
+
+
+<div>UPDATE PAGE...</div>
+
+@using (Html.BeginForm()){
+    <div>
+    @Html.LabelFor(t => t.Text) <br />
+    @Html.TextBoxFor(t => t.Text)
+    </div>
+    <div>
+        @Html.LabelFor(t => t.IsCompleted) <br />
+        @Html.CheckBoxFor(t => t.IsCompleted)
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+    
+}

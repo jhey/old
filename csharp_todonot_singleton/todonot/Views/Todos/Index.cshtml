@@ -10,6 +10,7 @@
         <th>DO NOT</th>
         <th>Created Date</th>
         <th>Did I do that?</th>
+        <th>Actions</th>
     </tr>
     @foreach (var todo in Model.Todos)
     {
@@ -17,6 +18,11 @@
             <td>@todo.Text</td>
             <td>@todo.DateCompleted</td>
             <td>@todo.IsCompleted</td>
+            <td>
+                @Html.ActionLink("Edit", "Update", new {Id = todo.Tid }) - <br />
+                @Html.ActionLink("Delete", "Delete", new { Id = todo.Tid})
+             </td>
+ 
         </tr>
     }
 </table>
