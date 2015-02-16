@@ -1,0 +1,118 @@
+--CREATE DATABASE my_test_db;
+USE my_test_db;
+
+--DROP TABLE Students_Courses; --Dep. Students and Courses
+--DROP TABLE Students;
+--DROP TABLE Courses; -- Dep. Teachers
+--DROP TABLE Teachers;
+
+
+CREATE TABLE Students 
+(
+	StudentId int PRIMARY KEY IDENTITY NOT NULL,
+	Name nvarchar(max) NOT NULL,
+	Age int NOT NULL,
+	StudentYear nvarchar(max) NOT NULL
+);
+
+CREATE TABLE Teachers
+(
+	TeacherId int PRIMARY KEY IDENTITY NOT NULL,
+	Name nvarchar(max) NOT NULL,
+	YearsExperience int NOT NULL
+);
+
+CREATE TABLE Courses
+(
+	CourseId int PRIMARY KEY IDENTITY NOT NULL,
+	CourseNum nvarchar(20) NOT NULL,
+	TeacherId int NULL FOREIGN KEY REFERENCES Teachers(TeacherId)
+);
+
+CREATE TABLE Students_Courses
+(
+	Students_CoursesID int PRIMARY KEY IDENTITY NOT NULL,
+	StudentId int FOREIGN KEY REFERENCES Students(StudentId),
+	CourseId int FOREIGN KEY REFERENCES Courses(CourseId)
+);
+
+--ALTER TABLE Teachers
+--ALTER COLUMN Name nvarchar(max) NOT NULL
+
+INSERT INTO Students
+("Name", Age, StudentYear)
+VALUES
+('Jeremy', 22, 'Senior'),
+('Nick', 30, 'Masters Candidate'),
+('Roberto', 17, 'Sophomore'),
+('Dave', 35, 'Junior'),
+('Dan', 63, 'Freshman'),
+('Rick', 15, 'Doctoral Candidate')
+
+INSERT INTO Teachers
+(Name, YearsExperience)
+VALUES
+('David', 20),
+('Bert', 5),
+('Barry', 1),
+('Leslie', 3)
+
+INSERT INTO Courses
+(CourseNum, TeacherId)
+VALUES
+('CompSci1201', 1),
+('CompSci3205', null),
+('English1100', 2),
+('Calculus6423', null),
+('Physics1000', 3),
+('Chemistry101', 3),
+('History1776', 4)
+
+INSERT INTO Students_Courses
+(StudentId, CourseId)
+VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 1),
+(2, 2),
+(3, 2),
+(3, 3)
+
+--Show all information
+SELECT t.Name, t.YearsExperience, c.CourseNum
+--Start from the Teachers Table (t)
+FROM Teachers t
+--Join t to the Courses Table (c)
+FULL OUTER JOIN Courses c
+ON c.TeacherId = t.TeacherId
+INNER JOIN Students_Courses sc
+ON sc.CourseId = c.CourseId
+INNER JOIN Students s
+ON sc.StudentId = s.StudentId
+WHERE s.StudentId = 1
+
+---- db.Students.Remove(db.Students.Where(x => x.Name == "Rick").FirstOrDefault());
+---- db.Students.RemoveAll(x => x.Name == "Rick");
+--DELETE FROM Students
+--WHERE Name = 'Rick'
+
+---- db.Teachers.Select(x => x.TeacherId).ToList();
+--SELECT TeacherId
+--FROM Teachers
+
+----db.Students.Where(x => x.Age < 30).Select(x => x.Name).ToList();
+--SELECT Name 
+--FROM Students 
+--WHERE Age < 30
+
+SELECT *
+FROM Teachers t
+RIGHT JOIN Courses c
+ON c.TeacherId = t.TeacherId
+
+
+Jeremy Doucet
+Cell: 281-794-3742
+Email: jeremy.doucet@codercamps.com
+
