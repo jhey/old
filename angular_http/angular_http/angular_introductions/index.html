@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS DEMO</title>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/TodoFactory.js"></script>
+    <script src="app/controllers/HomeController.js"></script>
+    <script src="app/controllers/TodoController.js"></script>
+    <script src="app/controllers/TweetsController.js"></script>
+
+</head>
+<body ng-app="myApp">
+
+    <a href="#/">Home</a>
+    <a href="#/todos">Todos</a>
+    <a href="#/tweets">Tweets</a>
+
+
+
+    <div ng-view=""></div>
+
+
+    
+
+</body>
+</html>

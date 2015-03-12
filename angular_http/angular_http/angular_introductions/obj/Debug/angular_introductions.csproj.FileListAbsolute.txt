@@ -1,0 +1,6 @@
+C:\projects\troop120\angular_introductions\angular_introductions\bin\angular_introductions.dll.config
+C:\projects\troop120\angular_introductions\angular_introductions\bin\angular_introductions.dll
+C:\projects\troop120\angular_introductions\angular_introductions\bin\angular_introductions.pdb
+C:\projects\troop120\angular_introductions\angular_introductions\obj\Debug\angular_introductions.csprojResolveAssemblyReference.cache
+C:\projects\troop120\angular_introductions\angular_introductions\obj\Debug\angular_introductions.dll
+C:\projects\troop120\angular_introductions\angular_introductions\obj\Debug\angular_introductions.pdb

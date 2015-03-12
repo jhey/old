@@ -4,3 +4,6 @@ C:\Users\Coder Camps\Desktop\troop120\csharp_intro\csharp_intro\bin\Debug\csharp
 C:\Users\Coder Camps\Desktop\troop120\csharp_intro\csharp_intro\obj\Debug\csharp_intro.csprojResolveAssemblyReference.cache
 C:\Users\Coder Camps\Desktop\troop120\csharp_intro\csharp_intro\obj\Debug\csharp_intro.exe
 C:\Users\Coder Camps\Desktop\troop120\csharp_intro\csharp_intro\obj\Debug\csharp_intro.pdb
+C:\_repos\_gihu_repos\troop120\csharp_intro\csharp_intro\bin\Debug\csharp_intro.exe.config
+C:\_repos\_gihu_repos\troop120\csharp_intro\csharp_intro\obj\Debug\csharp_intro.exe
+C:\_repos\_gihu_repos\troop120\csharp_intro\csharp_intro\obj\Debug\csharp_intro.pdb

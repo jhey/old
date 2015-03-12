@@ -10,6 +10,9 @@ namespace csharp_intro
     {
         static void Main(string[] args)
         {
+
+            Dog keke = new Dog();
+
             Student st = new Student();
             st.FirstName = "joe";
             st.LastName = "smith";
@@ -21,7 +24,7 @@ namespace csharp_intro
             Teacher tch = new Teacher();
             tch.FirstName = "Dan";
             tch.Subject = "Csharp & js";
-            tch.
+            //tch.
             
             List<Person> peeps = new List<Person>();
             peeps.Add(st);

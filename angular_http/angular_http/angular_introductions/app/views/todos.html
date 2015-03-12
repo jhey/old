@@ -1,0 +1,18 @@
+﻿<div>todos!</div>
+
+
+
+<input type="text" ng-model="newTodo" />
+
+<button ng-click="addTodo()" ng-hide="isEditing">ADD TODO!</button>
+<button ng-click="performUpdate()" ng-show="isEditing">UPDATE TODO!</button>
+
+<div ng-repeat="todo in myTodos">
+    {{$index}} - <input type="checkbox" ng-model="todo.completed">
+    <span><a href="#" ng-click="updateTodo($index)">{{todo.task}}</a></span>
+    <span><a ng-click="deleteTodo($index);">x</a></span>
+</div>
+
+
+
+<button ng-click="testRun()">Test</button>
